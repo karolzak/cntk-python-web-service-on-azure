@@ -1,0 +1,11 @@
+easydict==1.6
+pytest==3.0.3
+opencv-python
+https://pypi.python.org/packages/be/5c/670e88bc3ae6afa23c1f09d52a77bbbc7d2e476e7449ad3b6750040a0ac6/scipy-1.0.0b1-cp35-none-win_amd64.whl#md5=dcc90577f2eebc264ec60a2d5729e30b
+https://cntk.ai/PythonWheel/CPU-Only/cntk-2.1-cp35-cp35m-win_amd64.whl
+Flask==0.12.2
+numpy==1.11.2
+matplotlib==1.5.3
+ipython==6.2.0
+Pillow==4.1.1
+PyYAML==3.12
