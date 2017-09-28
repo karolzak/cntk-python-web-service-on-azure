@@ -13,7 +13,7 @@ This sample project shows off how to prepare and deploy to [Azure Web Apps](http
 
 ## Results
 
-[Website Demo](http://cntkpywebapptest1.azurewebsites.net/): 
+[Website Demo](http://cntkpywebapptest1.azurewebsites.net/):  
 ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
 
 Sample request and response in Postman:
