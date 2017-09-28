@@ -13,7 +13,7 @@ This sample project shows off how to prepare and deploy to [Azure Web Apps](http
 
 ## Results
 
-[Website Demo](http://cntkpywebapptest1.azurewebsites.net/)
+[Website Demo](http://cntkpywebapptest1.azurewebsites.net/): 
 ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
 
 Sample request and response in Postman:
@@ -131,7 +131,7 @@ Sample request and response in Postman:
 
 8. **Initialize git and add remote repository**
 
-    Make sure to replace `[remote_repo_address]`
+    Make sure to replace `[remote_repo_address]` with the URL returned in step number 7.
     ```
     git init
     git remote add azure [remote_repo_address]
@@ -154,7 +154,7 @@ Sample request and response in Postman:
 
     If everything went smooth you should now have a running Python application and you should be able to test it. I used Postman to test HTTP requests and responses
 
-    [Website Demo](http://cntkpywebapptest1.azurewebsites.net/)
+    [Website Demo](http://cntkpywebapptest1.azurewebsites.net/): 
     ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
 
     Sample request and response in Postman:
