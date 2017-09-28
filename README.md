@@ -150,11 +150,11 @@ Sample request and response in Postman:
 
     This will trigger our [custom deployment script](deploy.cmd), copy all the files, setup Python environment and install all the required dependencies from [requirements.txt](requirements.txt) file
 
-10. **Test application**
+10. **Test the application**
 
     If everything went smooth you should now have a running Python application and you should be able to test it. I used Postman to test HTTP requests and responses
 
-    [Website Demo](http://cntkpywebapptest1.azurewebsites.net/): 
+    [Website Demo](http://cntkpywebapptest1.azurewebsites.net/):  
     ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
 
     Sample request and response in Postman:
