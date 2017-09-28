@@ -1,8 +1,6 @@
-# CNTK-Python-Web-Service-on-Azure
+# Project description
 
-## Description
-
-This sample project shows off how to prepare and deploy to [Azure Web Apps](https://azure.microsoft.com/en-gb/services/app-service/web/) a simple Python web service with an image classifying model produced in [CNTK (Cognitive Toolkit)](https://github.com/Microsoft/CNTK)
+This sample project shows off how to prepare and deploy to [Azure Web Apps](https://azure.microsoft.com/en-gb/services/app-service/web/) a simple Python web service with an image classifying model produced in [CNTK (Cognitive Toolkit)](https://github.com/Microsoft/CNTK) using [FasterRCNN](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Detection/FasterRCNN)
 
 - [x] Web Service written in Python using Flask module
 - [x] Python scripts that allow to evaluate images using CNTK and pretrained model
@@ -11,7 +9,7 @@ This sample project shows off how to prepare and deploy to [Azure Web Apps](http
 - [ ] HTML UI for testing image classification
 - [ ] Virtual Python environments for each application deployed to Azure Web Apps
 
-## Results
+# Results
 
 [Website Demo](http://cntkpywebapptest1.azurewebsites.net/):  
 ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
@@ -312,6 +310,6 @@ Sample request and response in Postman:
 
 - [web.config](web.config)
 
-    I used `web.config` to point out the directory of my custom Python3.5 installation and to successfully run my Flask based Python web service. There is a great tutorial on how to host Flask based, RESTful web services which you can find [here](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask).
+    I used `web.config` to point out the directory of my custom Python3.5 installation and to successfully run my Flask based Python web service. There is a great tutorial on how to host Flask based, RESTful web services which you can find [here](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask).
     
     
