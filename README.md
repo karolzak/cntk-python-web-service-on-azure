@@ -1,3 +1,10 @@
+# Table of content:
+- [Project description](#project-description)
+- [Deployment steps](#deployment-steps)
+    - [Setup](#setup)
+    - [Deploy demo](#deploy-demo)
+- [Code highlights](#code-highlights)
+
 # Project description
 
 This sample project shows off how to prepare and deploy to [Azure Web Apps](https://azure.microsoft.com/en-gb/services/app-service/web/) a simple Python web service with an image classifying model produced in [CNTK (Cognitive Toolkit)](https://github.com/Microsoft/CNTK) using [FasterRCNN](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Detection/FasterRCNN)
@@ -45,7 +52,7 @@ Sample request and response in Postman:
 
     If you don't own any Azure subscriptions you can always create a [new free trial](https://azure.microsoft.com/en-us/free/) with $200 credits to spend
     
-## Replicate demo
+## Deploy demo
 1.  **Set variables**
 
     Open Command Prompt to the location where you unzipped the contents of this repository (for example: `cd C:\Poligon\WebService`) and type in as follows (but make sure to replace the `[]` with a proper value):
@@ -310,6 +317,27 @@ Sample request and response in Postman:
 
 - [web.config](web.config)
 
-    I used `web.config` to point out the directory of my custom Python3.5 installation and to successfully run my Flask based Python web service. There is a great tutorial on how to host Flask based, RESTful web services which you can find [here](https://blog.miguelgrinberg.com/post/designing-a-restful-api-with-python-and-flask).
+    I used `web.config` to point out the directory of my custom Python 3.5 installation and to successfully run my Flask based Python web service. I based my `web.config` on Azure Web Apps [documentation](https://docs.microsoft.com/en-us/azure/app-service/web-sites-python-configure).
+
+    ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+    <system.webServer>
+        <handlers>
+            <add name="PythonHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="D:\home\python354x64\python.exe"
+                    arguments="D:\home\site\wwwroot\app.py --port %HTTP_PLATFORM_PORT%"
+                    stdoutLogEnabled="true"
+                    stdoutLogFile="D:\home\site\wwwroot\logs\log_file2.log"
+                    startupTimeLimit="220"
+                    processesPerApplication="5">
+            <environmentVariables>
+                <environmentVariable name="SERVER_PORT" value="%HTTP_PLATFORM_PORT%" />
+            </environmentVariables>
+        </httpPlatform>
+    </system.webServer>
+    </configuration>
+    ```
     
     
