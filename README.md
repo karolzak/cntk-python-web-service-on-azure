@@ -44,7 +44,7 @@ Sample request and response in Postman:
 4. **Install Azure CLI tools**
 
     If you don't have it then you can easily do it by openning Windows Command Prompt and running this command:
-    ```
+    ```Batchfile
     pip install azure-cli
     ```
 
@@ -172,16 +172,17 @@ Sample request and response in Postman:
 
     
     Variables used by web service to point out directories for temp images and CNTK models:
-    ```
+    ```Python
     [..]
     # directories for web service:
     __C.CNTK.TEMP_PATH = "./Temp"
     __C.CNTK.MODEL_DIRECTORY = "./CNTKModels"
     [..]
     ```
+    
     Variables for chosing the specific model:
 
-    ```        
+    ```Python        
     [..]
     __C.CNTK.DATASET = "HotailorPOC2"
     [..]
@@ -194,8 +195,10 @@ Sample request and response in Postman:
         __C.CNTK.CLASS_MAP_FILE = "HotailorPOC2_class_map.txt"
     [..]
     ```
+
     Variables used by `evaluate.py` to properly preprocess images and use CNTK eval function
-    ```
+    
+    ```Python
     [..]
     __C.CNTK.IMAGE_WIDTH = 1000
     __C.CNTK.IMAGE_HEIGHT = 1000
@@ -206,7 +209,7 @@ Sample request and response in Postman:
 - [app.py](app.py) - main application - startup file for Flask
     
     There is one very important line for running CNTK:
-    ```    
+    ```Python
     [..]
     import os
     os.environ['PATH'] = r'D:\home\python354x64;' + os.environ['PATH']    
@@ -216,7 +219,7 @@ Sample request and response in Postman:
 
     I am using Flask module to run my web service. In order to make it work I needed to first create an instance of Flask app and then run it on a proper port:
 
-    ```
+    ```Python
     [..]
     app = Flask(__name__)
     [..]    
@@ -229,7 +232,7 @@ Sample request and response in Postman:
         app.run(HOST, PORT)
     ```
     I also used routes to set up specific methods for our RESTful web service. Currently I expose 2 routes for my API, one returning a collection of classified tags and the second one returning an image with plotted results of evaluation. `'/'` route simply sets the default landing page
-    ```
+    ```Python
     [..]
     @app.route('/')
     [..]
@@ -246,7 +249,7 @@ Sample request and response in Postman:
 - [plot_helpers.py](evaluate.py) - helper script for dealing with image ploting
 
     While working with headless server environment (non-GUI) such as Azure Web Apps you need to change the default mode of `matpotlib` module to not rely on GUI
-    ```    
+    ```Python  
     [..]
     # this is important when deploying to headless server environment (non-GUI)
     ###################################################
@@ -267,7 +270,7 @@ Sample request and response in Postman:
 - [requirements.txt](requirements.txt)
 
     It holds all the dependencies required by my application and CNTK libraries to work.
-    ```
+    ```Python
     easydict==1.6
     pytest==3.0.3
     opencv-python
@@ -285,7 +288,7 @@ Sample request and response in Postman:
 - [.deployment](.deployment)
 
     If this file is present, Kudu will use custom `deploy.cmd` file instead of the default one. We use custom deployment script to chose Python3.5 and install all the necesary dependencies. To learn more about Kudu and deploying to Azure Web Apps - [go here](https://azure.microsoft.com/en-gb/resources/videos/what-is-kudu-with-david-ebbo/)
-    ```
+    ```Python
     [config]
     command = deploy.cmd
     ```
@@ -294,7 +297,7 @@ Sample request and response in Postman:
 
     Custom script for our deployment with Kudu. Main difference from the default script is that I'm setting Python3.5 (installed from extension) as my main environment
 
-    ```
+    ```Python
     [..]
     SET PYTHON_DIR=%SYSTEMDRIVE%\home\python354x64
     SET PYTHON_EXE=%SYSTEMDRIVE%\home\python354x64\python.exe
@@ -302,7 +305,7 @@ Sample request and response in Postman:
     ```
 
     I'm also using `deploy.cmd` to install all the required dependencies:
-    ```
+    ```Python
     [..]
     :: 4. Install packages
     echo Pip install requirements.
@@ -319,7 +322,7 @@ Sample request and response in Postman:
 
     I used `web.config` to point out the directory of my custom Python 3.5 installation and to successfully run my Flask based Python web service. I based my `web.config` on Azure Web Apps [documentation](https://docs.microsoft.com/en-us/azure/app-service/web-sites-python-configure).
 
-    ```
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <configuration>
     <system.webServer>
