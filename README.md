@@ -1,5 +1,6 @@
 # Table of content:
 - [Project description](#project-description)
+- [Results](#results)
 - [Deployment steps](#deployment-steps)
     - [Setup](#setup)
     - [Deploy demo](#deploy-demo)
@@ -270,7 +271,7 @@ Sample request and response in Postman:
 - [requirements.txt](requirements.txt)
 
     It holds all the dependencies required by my application and CNTK libraries to work.
-    ```Python
+    ```
     easydict==1.6
     pytest==3.0.3
     opencv-python
@@ -288,7 +289,7 @@ Sample request and response in Postman:
 - [.deployment](.deployment)
 
     If this file is present, Kudu will use custom `deploy.cmd` file instead of the default one. We use custom deployment script to chose Python3.5 and install all the necesary dependencies. To learn more about Kudu and deploying to Azure Web Apps - [go here](https://azure.microsoft.com/en-gb/resources/videos/what-is-kudu-with-david-ebbo/)
-    ```Python
+    ```
     [config]
     command = deploy.cmd
     ```
@@ -297,7 +298,7 @@ Sample request and response in Postman:
 
     Custom script for our deployment with Kudu. Main difference from the default script is that I'm setting Python3.5 (installed from extension) as my main environment
 
-    ```Python
+    ```
     [..]
     SET PYTHON_DIR=%SYSTEMDRIVE%\home\python354x64
     SET PYTHON_EXE=%SYSTEMDRIVE%\home\python354x64\python.exe
@@ -305,7 +306,7 @@ Sample request and response in Postman:
     ```
 
     I'm also using `deploy.cmd` to install all the required dependencies:
-    ```Python
+    ```CMD
     [..]
     :: 4. Install packages
     echo Pip install requirements.
