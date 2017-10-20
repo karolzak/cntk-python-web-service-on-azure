@@ -1,4 +1,4 @@
-# Table of content:
+# Table of contents
 - [Project description](#project-description)
 - [Results](#results)
 - [Deployment steps](#deployment-steps)
@@ -7,6 +7,7 @@
 - [Code highlights](#code-highlights)
 
 # Project description
+[[back to the top]](#table-of-contents)
 
 This sample project shows off how to prepare and deploy to [Azure Web Apps](https://azure.microsoft.com/en-gb/services/app-service/web/) a simple Python web service with an image classifying model produced in [CNTK (Cognitive Toolkit)](https://github.com/Microsoft/CNTK) using [FasterRCNN](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Detection/FasterRCNN)
 
@@ -18,6 +19,7 @@ This sample project shows off how to prepare and deploy to [Azure Web Apps](http
 - [ ] Virtual Python environments for each application deployed to Azure Web Apps
 
 # Results
+[[back to the top]](#table-of-contents)
 
 [Website Demo](http://cntkpywebapptest1.azurewebsites.net/):  
 ![Demo](doc/iexplore_2017-09-26_23-09-42.jpg)
@@ -28,6 +30,7 @@ Sample request and response in Postman:
 # Deployment steps
 
 ## Setup
+[[back to the top]](#table-of-contents)
 
 
 1. **Download content of this repo**
@@ -54,6 +57,7 @@ Sample request and response in Postman:
     If you don't own any Azure subscriptions you can always create a [new free trial](https://azure.microsoft.com/en-us/free/) with $200 credits to spend
     
 ## Deploy demo
+[[back to the top]](#table-of-contents)
 1.  **Set variables**
 
     Open Command Prompt to the location where you unzipped the contents of this repository (for example: `cd C:\Poligon\WebService`) and type in as follows (but make sure to replace the `[]` with a proper value):
@@ -167,6 +171,7 @@ Sample request and response in Postman:
     ![Demo](doc/Postman_2017-09-26_22-50-06.jpg)
 
 # Code highlights
+[[back to the top]](#table-of-contents)
 
 
 - [config.py](config.py) - most variables for scripts are set in this file
