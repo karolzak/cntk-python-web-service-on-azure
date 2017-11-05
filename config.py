@@ -19,39 +19,24 @@ cfg = __C
 
 __C.CNTK = edict()
 
-__C.CNTK.MAKE_MODE = True
-__C.CNTK.TRAIN_E2E = True # E2E or 4-stage training
-__C.CNTK.TRAIN_CONV_LAYERS = True
-__C.CNTK.USE_MEAN_GRADIENT = True
-__C.CNTK.FORCE_DETERMINISTIC = True
-__C.CNTK.FAST_MODE = False
-
 # directories for web service:
-__C.CNTK.TEMP_PATH = "./Temp"
-__C.CNTK.MODEL_DIRECTORY = "./CNTKModels"
+__C.CNTK.TEMP_PATH = "./Temp" # temp folder for image processing - do not change
+__C.CNTK.MODEL_DIRECTORY = "./CNTKModels" # directory for storing models and class map files
 
-__C.CNTK.DATASET = "HotailorPOC2"
+#################
+# Model & Class Map Files names
+#################
+__C.CNTK.MODEL_NAME = "HotailorPOC2.model" # model file name
+__C.CNTK.CLASS_MAP_FILE = "HotailorPOC2_class_map.txt" # class map file name
+
+#################
+
 __C.CNTK.BASE_MODEL = "AlexNet" # "VGG16" or "AlexNet"
+
 __C.CNTK.CONV_BIAS_INIT = 0.0
 __C.CNTK.SIGMA_RPN_L1 = 3.0
-__C.CNTK.SIGMA_DET_L1 = 1.0
-__C.CNTK.BIAS_LR_MULT = 2.0
 
-# Learning parameters
-__C.CNTK.L2_REG_WEIGHT = 0.0005
-__C.CNTK.MOMENTUM_PER_MB = 0.9
-
-# E2E config
-__C.CNTK.E2E_MAX_EPOCHS = 20
-__C.CNTK.E2E_LR_PER_SAMPLE = [0.001] * 10 + [0.0001] * 10 + [0.00001]
-
-# 4-stage config (alternating training scheme)
-__C.CNTK.RPN_EPOCHS = 16
-__C.CNTK.RPN_LR_PER_SAMPLE = [0.001] * 12 + [0.0001] * 4
-__C.CNTK.FRCN_EPOCHS = 8
-__C.CNTK.FRCN_LR_PER_SAMPLE = [0.001] * 6 + [0.0001] * 2
-
-__C.CNTK.INPUT_ROIS_PER_IMAGE = 2000
+# change below settings to match variables used to train YOUR model
 __C.CNTK.IMAGE_WIDTH = 1000
 __C.CNTK.IMAGE_HEIGHT = 1000
 __C.CNTK.NUM_CHANNELS = 3
@@ -60,31 +45,8 @@ __C.CNTK.RESULTS_NMS_THRESHOLD = 0.3 # see also: __C.TEST.NMS = 0.3
 __C.CNTK.RESULTS_NMS_CONF_THRESHOLD = 0.0
 __C.CNTK.RESULTS_BGR_PLOT_THRESHOLD = 0.1
 
-__C.CNTK.GRAPH_TYPE = "png" # "png" or "pdf"
-__C.CNTK.DEBUG_OUTPUT = True
-__C.CNTK.VISUALIZE_RESULTS = True
 __C.CNTK.DRAW_NEGATIVE_ROIS = False
 __C.CNTK.DRAW_UNREGRESSED_ROIS = False
-
-__C.CNTK.FEATURE_STREAM_NAME = 'features'
-__C.CNTK.ROI_STREAM_NAME = 'roiAndLabel'
-__C.CNTK.DIMS_STREAM_NAME = 'dims'
-
-
-#
-# Data sets
-#
-
-if __C.CNTK.DATASET == "HotailorPOC2":
-    __C.CNTK.MODEL_NAME = "HotailorPOC2.model"
-    __C.CNTK.CLASS_MAP_FILE = "HotailorPOC2_class_map.txt"
-    __C.CNTK.TRAIN_MAP_FILE = "train_img_file.txt"
-    __C.CNTK.TEST_MAP_FILE = "test_img_file.txt"
-    __C.CNTK.TRAIN_ROI_FILE = "train_roi_file.txt"
-    __C.CNTK.TEST_ROI_FILE = "test_roi_file.txt"
-    __C.CNTK.NUM_TRAIN_IMAGES = 82
-    __C.CNTK.NUM_TEST_IMAGES = 27
-    __C.CNTK.PROPOSAL_LAYER_PARAMS = "'feat_stride': 16\n'scales':\n - 4 \n - 8 \n - 12"
 
 
 #

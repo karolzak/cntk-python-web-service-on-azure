@@ -174,42 +174,29 @@ Sample request and response in Postman:
 [[back to the top]](#table-of-contents)
 
 
-- [config.py](config.py) - most variables for scripts are set in this file
-
+- [config.py](config.py) - most important variables for scripts are set in this file
     
     Variables used by web service to point out directories for temp images and CNTK models:
-    ```Python
-    [..]
+
+    ```Python    
     # directories for web service:
-    __C.CNTK.TEMP_PATH = "./Temp"
-    __C.CNTK.MODEL_DIRECTORY = "./CNTKModels"
-    [..]
+    __C.CNTK.TEMP_PATH = "./Temp" # temp folder for image processing - do not change
+    __C.CNTK.MODEL_DIRECTORY = "./CNTKModels" # directory for storing models and class map files
     ```
     
     Variables for chosing the specific model:
 
-    ```Python        
-    [..]
-    __C.CNTK.DATASET = "HotailorPOC2"
-    [..]
-    #
-    # Data sets
-    #
-
-    if __C.CNTK.DATASET == "HotailorPOC2":
-        __C.CNTK.MODEL_NAME = "HotailorPOC2.model"
-        __C.CNTK.CLASS_MAP_FILE = "HotailorPOC2_class_map.txt"
-    [..]
+    ```Python           
+    __C.CNTK.MODEL_NAME = "HotailorPOC2.model" # model file name
+    __C.CNTK.CLASS_MAP_FILE = "HotailorPOC2_class_map.txt" # class map file name
     ```
 
-    Variables used by `evaluate.py` to properly preprocess images and use CNTK eval function
+    Variables used by `evaluate.py` to properly preprocess images and use CNTK eval function:
     
     ```Python
-    [..]
     __C.CNTK.IMAGE_WIDTH = 1000
     __C.CNTK.IMAGE_HEIGHT = 1000
     __C.CNTK.NUM_CHANNELS = 3
-    [..]
     ```
 
 - [app.py](app.py) - main application - startup file for Flask
@@ -250,7 +237,7 @@ Sample request and response in Postman:
 
 - [evaluate.py](evaluate.py) - main script for image classification with CNTK model
     
-    This script strongly depends on [config.py](config.py) and it also uses [cntk_helpers.py](cntk_helpers.py), [plot_helpers.py](plot_helpers.py) and bunch of scripts from `utils` folder. Most of this scripts were copied from original [CNTK source on github](https://github.com/Microsoft/CNTK), some of them with slight changes
+    This script strongly depends on [config.py](config.py) and it also uses [cntk_helpers.py](cntk_helpers.py), [plot_helpers.py](plot_helpers.py) and bunch of scripts from [utils](utils) folder. Most of those scripts were copied from original [CNTK source on github](https://github.com/Microsoft/CNTK), some of them with slight changes
 
 - [plot_helpers.py](evaluate.py) - helper script for dealing with image ploting
 
