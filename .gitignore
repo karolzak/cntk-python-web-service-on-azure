@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
+# *.py[cod]
 *$py.class
 
 # IDE
@@ -9,7 +9,7 @@ __pycache__/
 .vscode/
 
 # C extensions
-*.so
+#*.so
 
 # Distribution / packaging
 .Python
@@ -102,3 +102,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# directories
+.idea/
+
+# temporary ignore
+__pycache__
+__init__.py
+Temp/*.jpg
+CNTKModels/*.txt
+
+# models
+*.model
