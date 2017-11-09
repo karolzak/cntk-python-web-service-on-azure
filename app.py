@@ -3,7 +3,14 @@ from flask import Flask, jsonify, request, make_response, send_file
 import os
 os.environ['PATH'] = r'D:\home\python354x64;' + os.environ['PATH']
 import uuid
+from config import cfg
+from cntk import load_model
 app = Flask(__name__)
+
+
+model_path = os.path.join(cfg["CNTK"].MODEL_DIRECTORY, cfg["CNTK"].MODEL_NAME)
+print("Loading existing model from %s" % model_path)
+loadedModel = load_model(model_path)
 
 
 @app.errorhandler(404)
@@ -31,7 +38,7 @@ def return_tags():
         file_upload.save(temp_file_path)
         app.logger.debug('File is saved as %s', temp_file_path)
     from evaluate import evaluateimage
-    return jsonify(tags=[e.serialize() for e in evaluateimage(temp_file_path,"returntags")])
+    return jsonify(tags=[e.serialize() for e in evaluateimage(temp_file_path,"returntags",eval_model=loadedModel)])
 
 @app.route('/hotelidentifier/api/v1.0/evaluate/returnimage', methods=['POST'])
 def return_image():
@@ -41,7 +48,7 @@ def return_image():
         file_upload.save(temp_file_path)
         app.logger.debug('File is saved as %s', temp_file_path)
     from evaluate import evaluateimage
-    return send_file(evaluateimage(temp_file_path,"returnimage"), mimetype='image/jpg')
+    return send_file(evaluateimage(temp_file_path,"returnimage",eval_model=loadedModel), mimetype='image/jpg')
     #return send_file(os.path.join('./Temp', temp_filename), mimetype='image/jpg')
 
 

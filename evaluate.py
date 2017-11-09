@@ -157,11 +157,12 @@ def eval_faster_rcnn(eval_model, imgPath, img_shape,
 
 
 # mode="returnimage" or "returntags"
-def evaluateimage(file_path, mode):
+def evaluateimage(file_path, mode, eval_model=None):
 
     #from plot_helpers import eval_and_plot_faster_rcnn
-    print("Loading existing model from %s" % model_path)
-    eval_model = load_model(model_path)
+    if eval_model==None:
+        print("Loading existing model from %s" % model_path)
+        eval_model = load_model(model_path)
     img_shape = (num_channels, image_height, image_width)
     results_folder = globalvars['temppath']
     results=eval_faster_rcnn(eval_model, file_path, img_shape,
